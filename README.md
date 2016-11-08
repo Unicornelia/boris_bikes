@@ -1,3 +1,3 @@
 # Boris Bikes
 
-Monday work with Oscar
+Monday work with Oscar and Kornelia.
