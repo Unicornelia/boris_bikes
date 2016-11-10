@@ -13,8 +13,9 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
-#  it "docks bikes" do
-#    docked_bike = subject.dock(bike)
-#  end
+ it "docking station docks bikes" do
+   bike = DockingStation.new.release_bike
+   docked_bike = subject.dock(bike)
+ end
 
 end
