@@ -41,9 +41,13 @@ describe DockingStation do
     expect(new_bike).to be_working
   end
 
+  it "checks whether the value of DEFAULT_CAPACITY constant is 20" do
+    expect(DockingStation::DEFAULT_CAPACITY).to eq 20
+  end
+
   describe '#is_full?' do
     it 'returns true if the station is full' do
-      20.times {subject.dock(Bike.new)}
+      DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
       expect(subject.is_full?).to eq true
     end
 
@@ -68,7 +72,7 @@ describe DockingStation do
   end
 
   it 'Raises an error if you try to dock a bike in a station that already has 20 bikes in' do
-    20.times {subject.dock(Bike.new)}
+    DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
     expect { subject.dock(Bike.new) }.to raise_error('Docking station full')
   end
 
