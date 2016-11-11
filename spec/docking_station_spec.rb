@@ -35,4 +35,10 @@ end
     expect { subject.release_bike }.to raise_error('No bikes available')
   end
 
+  it 'raises an error if you try to dock a bike in a station that already has a bike in' do
+    bike = Bike.new
+    subject.dock(bike)
+    expect { subject.dock(Bike.new) }.to raise_error('Docking station full')
+  end
+
 end
