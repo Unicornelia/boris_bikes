@@ -67,6 +67,19 @@ describe DockingStation do
     end
   end
 
+  context 'capacity' do
+
+    it 'checks a docking station responds to capacity' do
+      expect(subject).to respond_to(:capacity)
+    end
+
+    it 'allows a user to set capacity' do
+      station = DockingStation.new(30)
+      expect(station.capacity).to eq 30
+    end
+
+  end
+
   it "raises an error when you try to release a bike when there is none there" do
     expect { subject.release_bike }.to raise_error('No bikes available')
   end
