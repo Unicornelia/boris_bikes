@@ -29,7 +29,9 @@ class DockingStation
     empty?
   end
 
-  def return_report_broken
+  def report_broken(bike)
+    bike.broken
+    dock(bike)
   end
 
   private

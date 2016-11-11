@@ -87,6 +87,12 @@ describe DockingStation do
 
   end
 
+  it 'can update bike status to broken when you dock it' do
+    bike = Bike.new
+    subject.report_broken(bike)
+    expect(subject.bikes.pop.working?).to eq false
+  end
+
   describe 'error handling' do
 
     it 'Raises an error if you try to dock a bike in a station that already has 20 bikes in' do
