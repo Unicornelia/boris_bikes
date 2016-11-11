@@ -29,6 +29,9 @@ class DockingStation
     empty?
   end
 
+  def return_report_broken
+  end
+
   private
     def full?
       @bikes.count >= DEFAULT_CAPACITY

@@ -18,4 +18,13 @@ describe Bike do
 
   end
 
+  describe '#report' do
+
+    it 'changes the working status of a bike to "broken"' do
+      subject.broken
+      expect(subject.working?).to eq false
+    end
+
+  end
+
 end
