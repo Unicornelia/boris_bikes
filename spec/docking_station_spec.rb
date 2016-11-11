@@ -41,14 +41,25 @@ describe DockingStation do
     expect(new_bike).to be_working
   end
 
-  describe '.full?' do
+  describe '#is_full?' do
     it 'returns true if the station is full' do
       20.times {subject.dock(Bike.new)}
-      expect(subject.full?).to eq true
+      expect(subject.is_full?).to eq true
     end
 
     it 'returns false if the station is not full' do
-      expect(subject.full?).to eq false
+      expect(subject.is_full?).to eq false
+    end
+  end
+
+  describe '#is_empty?' do
+    it 'returns true if the station is empty' do
+      expect(subject.is_empty?).to eq true
+    end
+
+    it 'returns false if the station is not empty' do
+      subject.dock(Bike.new)
+      expect(subject.is_empty?).to eq false
     end
   end
 
