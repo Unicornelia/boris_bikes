@@ -8,11 +8,11 @@ describe DockingStation do
     expect(subject).to respond_to(:bikes)
   end
 
-it 'can dock a bike' do
-  new_bike = Bike.new
-  subject.dock(new_bike)
-  expect(subject.bikes.pop).to eq new_bike
-end
+  it 'can dock a bike' do
+    new_bike = Bike.new
+    subject.dock(new_bike)
+    expect(subject.bikes.pop).to eq new_bike
+  end
 
   it "gets a bike" do
     new_bike = Bike.new
@@ -39,6 +39,17 @@ end
   it "checks it is working" do
     new_bike = Bike.new
     expect(new_bike).to be_working
+  end
+
+  describe '.full?' do
+    it 'returns true if the station is full' do
+      20.times {subject.dock(Bike.new)}
+      expect(subject.full?).to eq true
+    end
+
+    it 'returns false if the station is not full' do
+      expect(subject.full?).to eq false
+    end
   end
 
   it "raises an error when you try to release a bike when there is none there" do
